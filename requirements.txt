@@ -1,13 +1,12 @@
 flask
 line-bot-sdk
-Jinja2
+requests
+gunicorn
 click
-Werkzeug
-itsdangerous
 future
 requests
 MarkupSafe
 certifi
 urllib3
 idna
-gunicorn
+argparse
