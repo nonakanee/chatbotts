@@ -7,7 +7,6 @@ itsdangerous
 future
 requests
 MarkupSafe
-charset-normalizer~
 certifi
 urllib3
 idna
