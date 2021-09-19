@@ -1,1 +1,1 @@
-web: gunicorn gettingstarted.main
+web: gunicorn app:main
