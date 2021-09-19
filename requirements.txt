@@ -1,2 +1,13 @@
 flask
 line-bot-sdk
+Jinja2
+click
+Werkzeug
+itsdangerous
+future
+requests
+MarkupSafe
+charset-normalizer~
+certifi
+urllib3
+idna
