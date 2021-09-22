@@ -10,12 +10,14 @@ if __name__ == "__main__":
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-
+import chat
 import errno
 import os
 import sys
 import tempfile
 from argparse import ArgumentParser
+import requests
+import json
 
 from flask import Flask, request, abort
 
@@ -78,7 +80,7 @@ def callback():
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-
+    print(body)
     # handle webhook body
     try:
         handler.handle(body, signature)
@@ -86,7 +88,24 @@ def callback():
         abort(400)
 
     return 'OK'
+'''
+def callback():
+    if request.method == 'POST':
+        payload = request.json
+        Reply_token = payload['events'][0]['replyToken']
+        print(Reply_token)
+        message = payload['events'][0]['message']['text']
+        print(message)
 
+
+        if 'good' in message :
+            Reply_messasge = 'very good'
+            ReplyMessage(Reply_token,Reply_messasge,channel_access_token)
+
+        return request.json, 200
+    else:
+        abort(400)
+'''
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
@@ -161,11 +180,16 @@ def handle_text_message(event):
         template_message = TemplateSendMessage(
             alt_text='Buttons alt text', template=carousel_template)
         line_bot_api.reply_message(event.reply_token, template_message)
+    elif text == 'ขอเลขเด็ด':
+        msg = 'ขออภัยด้วยครับ ขณะนี้อยู่ระหว่างพัฒนาครับ'
+        line_bot_api.reply_message(event.reply_token, msg)
     elif text == 'imagemap':
         pass
     else:
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=event.message.text))
+        #line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
+         responses = chat.chat(text)
+         line_bot_api.reply_message(event.reply_token, TextSendMessage(responses))
+
 
 
 @handler.add(MessageEvent, message=LocationMessage)
@@ -253,6 +277,25 @@ def handle_beacon(event):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='Got beacon event. hwid=' + event.beacon.hwid))
+
+def ReplyMessage(Reply_token, TextMessage, Line_Acees_Token):
+    LINE_API = 'https://api.line.me/v2/bot/message/reply'
+    Authorization = 'Bearer {}'.format(Line_Acees_Token)
+    print(Authorization)
+    headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization':Authorization
+    }
+    data = {
+        "replyToken":Reply_token,
+        "messages":[{
+            "type":"text",
+            "text":TextMessage
+        }]
+    }
+    data = json.dumps(data)
+    r = requests.post(LINE_API, headers=headers, data=data)
+    return 200
 
 
 if __name__ == "__main__":
