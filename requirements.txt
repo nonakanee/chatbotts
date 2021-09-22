@@ -9,7 +9,8 @@ MarkupSafe
 certifi
 urllib3
 idna
-python-nltk
+corpora
+nltk
 numpy
 tflearn
 tensorflow
