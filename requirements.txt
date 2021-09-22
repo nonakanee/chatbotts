@@ -11,6 +11,6 @@ urllib3
 idna
 numpy
 tflearn
-tensorflow==1.14
+tensorflow==1.1.4
 --use-feature=2020-resolver
 attacut
