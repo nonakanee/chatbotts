@@ -9,9 +9,9 @@ MarkupSafe
 certifi
 urllib3
 idna
-corpora
 numpy
 tflearn
 tensorflow
 tensorflow-gpu
 attacut
+corpora
