@@ -12,6 +12,4 @@ idna
 numpy
 tflearn
 tensorflow
-tensorflow-gpu
 attacut
-corpora
