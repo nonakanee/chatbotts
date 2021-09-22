@@ -148,4 +148,4 @@ def chat(massage):
             #print(msg)
             return msg
 
-chat()
+#chat()
