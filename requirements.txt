@@ -13,4 +13,5 @@ numpy
 tflearn
 tensorflow
 tensorflow-gpu
+--use-feature=2020-resolver
 attacut
