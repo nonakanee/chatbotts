@@ -9,7 +9,9 @@ MarkupSafe
 certifi
 urllib3
 idna
+nltk
 numpy
 tflearn
 tensorflow
+tensorflow-gpu
 attacut
