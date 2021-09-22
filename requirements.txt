@@ -10,7 +10,6 @@ certifi
 urllib3
 idna
 corpora
-nltk
 numpy
 tflearn
 tensorflow
