@@ -12,6 +12,5 @@ idna
 numpy
 tflearn
 tensorflow
-tensorflow-cpu
 --use-feature=2020-resolver
 attacut
