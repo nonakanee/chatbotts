@@ -8,7 +8,7 @@ stemmer = LancasterStemmer()
 import numpy as np
 import tflearn
 #import tensorflow as tf
-import tensorflow.compat.v1 as tf
+#import tensorflow.compat.v1 as tf
 import random
 import json
 import pickle
@@ -75,7 +75,7 @@ except:
     with open("data_th.pickle","wb") as f:
         pickle.dump((words, labels, training, output), f)
 
-tf.compat.v1.reset_default_graph()
+#tf.compat.v1.reset_default_graph()
 
 net = tflearn.input_data(shape=[None, len(training[0])])
 net = tflearn.fully_connected(net, 8)
