@@ -1,14 +1,7 @@
 --use-feature=2020-resolver
 attacut==1.0.6
-certifi==2021.5.30
-click==7.1.2
 Flask==1.1.2
-future==0.18.2
-idna==3.2
 line-bot-sdk==1.17.0
-MarkupSafe==2.0.1
 numpy==1.19.5
 gunicorn==20.1.0
-requests==2.26.0
 tflearn==0.5.0
-urllib3==1.26.6
